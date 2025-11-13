@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Administrateur</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Administration</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link">
+                        <span class="icon">🎛️</span>
+                        <span>Vue d'ensemble</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#users" class="nav-link">
+                        <span class="icon">👥</span>
+                        <span>Utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#companies" class="nav-link">
+                        <span class="icon">🏢</span>
+                        <span>Entreprises</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#permissions" class="nav-link">
+                        <span class="icon">🔐</span>
+                        <span>Permissions</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#system" class="nav-link">
+                        <span class="icon">⚙️</span>
+                        <span>Système</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#logs" class="nav-link">
+                        <span class="icon">📋</span>
+                        <span>Journaux</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#security" class="nav-link">
+                        <span class="icon">🛡️</span>
+                        <span>Sécurité</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <span class="icon">🔙</span>
+                    <span>Retour</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher dans le système...">
+                </div>
+                <div class="user-info">
+                    <div class="system-status">
+                        <span class="status-indicator online"></span>
+                        <span>Système opérationnel</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="username">Admin</span>
+                        <div class="avatar admin">AD</div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content">
+                <div class="page-header">
+                    <h1>Tableau de bord administrateur</h1>
+                    <p>Supervision et gestion du système</p>
+                </div>
+
+                <!-- System Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon red">👥</div>
+                        <div class="stat-info">
+                            <h3>Utilisateurs totaux</h3>
+                            <p class="stat-number">1,245</p>
+                            <span class="stat-change positive">+45 cette semaine</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">🏢</div>
+                        <div class="stat-info">
+                            <h3>Entreprises</h3>
+                            <p class="stat-number">89</p>
+                            <span class="stat-change positive">+7 actives</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">💾</div>
+                        <div class="stat-info">
+                            <h3>Stockage utilisé</h3>
+                            <p class="stat-number">67%</p>
+                            <span class="stat-change neutral">245 GB / 365 GB</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">⚡</div>
+                        <div class="stat-info">
+                            <h3>Performance</h3>
+                            <p class="stat-number">98.5%</p>
+                            <span class="stat-change positive">Excellent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Sections -->
+                <div class="dashboard-sections">
+                    <div class="section-card full-width">
+                        <div class="section-header">
+                            <h2>Activité système récente</h2>
+                            <div class="header-actions">
+                                <button class="btn-secondary">Exporter</button>
+                                <button class="btn-primary">Rafraîchir</button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Horodatage</th>
+                                        <th>Type</th>
+                                        <th>Utilisateur</th>
+                                        <th>Action</th>
+                                        <th>Statut</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>14/11/2025 10:35</td>
+                                        <td><span class="badge badge-info">Connexion</span></td>
+                                        <td>admin@entreprise.fr</td>
+                                        <td>Connexion au portail admin</td>
+                                        <td><span class="status-badge success">Succès</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14/11/2025 10:22</td>
+                                        <td><span class="badge badge-warning">Modification</span></td>
+                                        <td>marie.martin@entreprise.fr</td>
+                                        <td>Mise à jour des permissions</td>
+                                        <td><span class="status-badge success">Succès</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14/11/2025 09:58</td>
+                                        <td><span class="badge badge-success">Création</span></td>
+                                        <td>admin@entreprise.fr</td>
+                                        <td>Nouvelle entreprise ajoutée</td>
+                                        <td><span class="status-badge success">Succès</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14/11/2025 09:45</td>
+                                        <td><span class="badge badge-error">Erreur</span></td>
+                                        <td>user@test.fr</td>
+                                        <td>Tentative de connexion échouée</td>
+                                        <td><span class="status-badge error">Échec</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2>Alertes système</h2>
+                            <span class="alert-count">2</span>
+                        </div>
+                        <div class="alerts-list">
+                            <div class="alert-item warning">
+                                <div class="alert-icon">⚠️</div>
+                                <div class="alert-content">
+                                    <h4>Mise à jour disponible</h4>
+                                    <p>Version 2.1.5 disponible</p>
+                                    <span class="alert-time">Il y a 3 heures</span>
+                                </div>
+                            </div>
+                            <div class="alert-item info">
+                                <div class="alert-icon">ℹ️</div>
+                                <div class="alert-content">
+                                    <h4>Sauvegarde planifiée</h4>
+                                    <p>Sauvegarde automatique ce soir à 23h</p>
+                                    <span class="alert-time">Aujourd'hui</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2>Actions rapides</h2>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <span class="icon">➕</span>
+                                <span>Nouvel utilisateur</span>
+                            </button>
+                            <button class="action-btn">
+                                <span class="icon">🏢</span>
+                                <span>Nouvelle entreprise</span>
+                            </button>
+                            <button class="action-btn">
+                                <span class="icon">💾</span>
+                                <span>Sauvegarde manuelle</span>
+                            </button>
+                            <button class="action-btn">
+                                <span class="icon">📊</span>
+                                <span>Générer rapport</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
