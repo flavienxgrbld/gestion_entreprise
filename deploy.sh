@@ -55,7 +55,7 @@ if [ -d "$SITE_DIR" ]; then
         log_warn "Le répertoire existe mais n'est pas un dépôt Git"
         log_info "Suppression et clonage du dépôt..."
         cd /var/www || exit 1
-        sudo rm -rf "$SITE_DIR"
+        rm -rf "$SITE_DIR"
         git clone "$REPO_URL" "$SITE_DIR"
     fi
 else
@@ -107,10 +107,10 @@ log_info "Tous les fichiers essentiels sont présents ✓"
 
 # Ajuster les permissions
 log_info "Configuration des permissions..."
-sudo chown -R $WEB_USER:$WEB_USER "$SITE_DIR"
-sudo chmod -R 755 "$SITE_DIR"
-sudo find "$SITE_DIR" -type f -exec chmod 644 {} \;
-sudo find "$SITE_DIR" -type d -exec chmod 755 {} \;
+chown -R $WEB_USER:$WEB_USER "$SITE_DIR"
+chmod -R 755 "$SITE_DIR"
+find "$SITE_DIR" -type f -exec chmod 644 {} \;
+find "$SITE_DIR" -type d -exec chmod 755 {} \;
 
 log_info "Permissions configurées ✓"
 
@@ -122,7 +122,7 @@ else
     log_warn "Aucune configuration Apache spécifique trouvée"
     log_info "Création de la configuration..."
     
-    sudo tee /etc/apache2/sites-available/gestion.conf > /dev/null <<EOF
+    tee /etc/apache2/sites-available/gestion.conf > /dev/null <<EOF
 <VirtualHost *:80>
     ServerName srv-web-01
     DocumentRoot $SITE_DIR
@@ -139,19 +139,19 @@ else
 EOF
     
     log_info "Activation du site..."
-    sudo a2ensite gestion.conf
-    sudo a2enmod rewrite
+    a2ensite gestion.conf
+    a2enmod rewrite
 fi
 
 # Redémarrer Apache
 log_info "Redémarrage d'Apache..."
-sudo systemctl restart apache2
+systemctl restart apache2
 
 if [ $? -eq 0 ]; then
     log_info "Apache redémarré avec succès ✓"
 else
     log_error "Échec du redémarrage d'Apache"
-    sudo systemctl status apache2
+    systemctl status apache2
     exit 1
 fi
 
